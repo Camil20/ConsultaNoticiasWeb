@@ -19,15 +19,15 @@
   
 <hr />
 
-<div class="row">
+@*<div class="row">*@
     @foreach (var item in Model.Articulo)
     {
-        <div class="col-md-3">
-            <div class="col-sm-2">
+        @*<div class="col-md-3">*@
+            @*<div class="col-sm-2">*@
                 <div class="card border-primary mb-3" style="width: 22rem;">
                     <img src="@Url.Content(item.UrlToImage)" class="card-img-top" />
-                    <div class="card-mb-3">
-                        <div class="card-body form-group">
+                    @*<div class="card-mb-3">*@
+                        <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Contenido)</p>
                         </div>
@@ -42,11 +42,11 @@
                         <div class="card-footer">
                             <a href="@Html.DisplayFor(modelItem => item.Url)" class="card-link btn btn-primary">Ver mas...</a>
                         </div>
-                    </div>
                 </div>
-            </div>
-        </div>
+                @*</div>*@
+            @*</div>*@
+        @*</div>*@
 
     }
 
-</div>
+@*</div>*@
