@@ -1,0 +1,23 @@
+﻿@model AdministrarNoticias.Paise
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles del país</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre del país
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombrePais)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PaisId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>

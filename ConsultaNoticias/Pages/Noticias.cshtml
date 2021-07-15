@@ -1,0 +1,52 @@
+﻿@page
+@model ConsultaNoticias.Pages.NoticiasModel
+
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+
+<form method="get">
+    <input name="buscar" value="@ViewData["buscar"]" placeholder="Buscar por categoria" size="120" />
+
+    <button class="btn btn-primary" type="submit">Buscar</button>
+
+    @*<select asp-items="@(new SelectList(Model.displaydata,"CategoriaId","NombreCategoria"))">
+        <option value="@ViewData["buscar"]" selected disabled>--Selecciona el nombre de la categoria--</option>
+    </select>*@
+   
+</form>
+  
+<hr />
+
+<div class="row">
+    @foreach (var item in Model.Articulo)
+    {
+        <div class="col-md-3">
+            <div class="col-sm-2">
+                <div class="card border-primary mb-3" style="width: 22rem;">
+                    <img src="@Url.Content(item.UrlToImage)" class="card-img-top" />
+                    <div class="card-mb-3">
+                        <div class="card-body form-group">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Contenido)</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                @Html.DisplayFor(modelItem => item.Autor)
+                                <hr />
+                                @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                            </li>
+
+                        </ul>
+                        <div class="card-footer">
+                            <a href="@Html.DisplayFor(modelItem => item.Url)" class="card-link btn btn-primary">Ver mas...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

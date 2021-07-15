@@ -1,0 +1,24 @@
+﻿@model AdministrarNoticias.Fuente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles de la fuente</h1>
+
+<div>
+  
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Nombre de la fuente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreFuente)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FuenteId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>

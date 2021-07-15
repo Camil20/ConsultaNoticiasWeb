@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AdministrarNoticias.Paise>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+        <h1>PAISES</h1>
+    </div>
+    <div>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Crear país</a>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre del país
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePais)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PaisId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.PaisId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PaisId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

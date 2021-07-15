@@ -1,0 +1,33 @@
+﻿@model AdministrarNoticias.Fuente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear fuente</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreFuente" class="control-label">Nombre de la fuente</label>
+                <input asp-for="NombreFuente" class="form-control" />
+                <span asp-validation-for="NombreFuente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,78 @@
+﻿@model AdministrarNoticias.Articulo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar artículo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ArticuloId" />
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor" class="control-label"></label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlToImage" class="control-label"></label>
+                <input asp-for="UrlToImage" class="form-control" />
+                <span asp-validation-for="UrlToImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaPublicacion" class="control-label">Fecha de Publicación</label>
+                <input asp-for="FechaPublicacion" class="form-control" />
+                <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contenido" class="control-label"></label>
+                <input asp-for="Contenido" class="form-control" />
+                <span asp-validation-for="Contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriaId" class="control-label">Categoría</label>
+                <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaisId" class="control-label">País</label>
+                <select asp-for="PaisId" class="form-control" asp-items="ViewBag.PaisId"></select>
+                <span asp-validation-for="PaisId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FuenteId" class="control-label">Fuente</label>
+                <select asp-for="FuenteId" class="form-control" asp-items="ViewBag.FuenteId"></select>
+                <span asp-validation-for="FuenteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

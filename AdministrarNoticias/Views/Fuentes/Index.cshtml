@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AdministrarNoticias.Fuente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+        <h1>FUENTES</h1>
+    </div>
+    <div>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Crear fuente</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre de la fuente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreFuente)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FuenteId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.FuenteId">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FuenteId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
