@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Consulta de Noticias</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link href="~/css/Estilos.css" rel="stylesheet" />
+    @*<link href="~/css/Estilos.css" rel="stylesheet" />*@
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/NuevosEstilos.css" rel="stylesheet" />
 </head>
 <body>
     <header>
-        <nav class="navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
-            <div class="container3">
-               <h1>NOTICIAS</h1>
+        <nav class="navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 ">
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="nav nav-item ml-5 mr-4 mt-4 display-6">
+                        <a class="nav-link text-dark" asp-page="/Index"><b>PORTADA</b></a>
+                    </li>
+                    <li class="nav nav-item ml-5 mr-4 mt-4" style="font-size:30px ">
+                        <a class="nav-link text-dark" asp-page="/Noticias">NOTICIAS</a>
+                    </li>
+                </ul>
+               
                 @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>*@
-                
+                </button>*@    
+
             </div>
         </nav>
     </header>

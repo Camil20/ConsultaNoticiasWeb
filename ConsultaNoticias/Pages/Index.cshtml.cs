@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,6 @@ namespace ConsultaNoticias.Pages
         {
             _logger = logger;
         }
-
-        public void OnGet()
-        {
-
-        }
+      
     }
 }

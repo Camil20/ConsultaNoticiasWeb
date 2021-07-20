@@ -1,4 +1,6 @@
-﻿.titulo {
+﻿
+
+.titulo {
     text-shadow: 7px 3px 5px #0026ff;
     font-size: 4.5rem;
 }
@@ -8,19 +10,20 @@
 .encabezado {
     border-block: solid;
     color: #000;
-    background-color: #000;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-size:4.5rem;
+    background-color: #1861ac;
+    font-size: 4.5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   
 }
 
-.cuerpo{
+.cuerpo {
     background-color: #808080;
 }
 
-.contenedor{
-    font-size: 0.7rem;
-    border-radius: 10px;
+.contenedor {
+    font-size: 0.9rem;
+    border-radius: 1px;
+}
+
+.Pies {
+    background-color: #1861ac;
 }

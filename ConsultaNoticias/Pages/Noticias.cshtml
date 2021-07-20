@@ -5,48 +5,46 @@
     ViewData["Title"] = "Noticias";
 }
 
-
 <form method="get">
-    <input name="buscar" value="@ViewData["buscar"]" placeholder="Buscar por categoria" size="120" />
-
-    <button class="btn btn-primary" type="submit">Buscar</button>
-
-    @*<select asp-items="@(new SelectList(Model.displaydata,"CategoriaId","NombreCategoria"))">
-        <option value="@ViewData["buscar"]" selected disabled>--Selecciona el nombre de la categoria--</option>
-    </select>*@
-   
+    <div class="row">
+        <div class="col-3">
+            <input name="buscar" value="@ViewData["buscar"]" placeholder="Buscar por noticias" />
+            <button class="btn-primary contenedor1" type="submit">Buscar</button>
+        </div>
+        @*<div class="col-3">
+            <select asp-items="@(new SelectList(Model.Displaydata,"CategoriaId","NombreCategoria"))" value="@ViewData["busqueda"]">
+                <option name="busqueda" value="" selected>--Selecciona la categoría--</option>
+            </select>
+        </div>*@
+        @*<div class="col-2 " >
+            <button class="btn-primary contenedor1" value="busqueda" type="submit">Buscar</button>
+        </div>*@
+        
+    </div>
 </form>
   
 <hr />
 
-@*<div class="row">*@
+<div class="row">
     @foreach (var item in Model.Articulo)
     {
-        @*<div class="col-md-3">*@
-            @*<div class="col-sm-2">*@
-                <div class="card border-primary mb-3" style="width: 22rem;">
-                    <img src="@Url.Content(item.UrlToImage)" class="card-img-top" />
-                    @*<div class="card-mb-3">*@
-                        <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                            <p class="card-text">@Html.DisplayFor(modelItem => item.Contenido)</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                @Html.DisplayFor(modelItem => item.Autor)
-                                <hr />
-                                @Html.DisplayFor(modelItem => item.FechaPublicacion)
-                            </li>
-
-                        </ul>
-                        <div class="card-footer">
-                            <a href="@Html.DisplayFor(modelItem => item.Url)" class="card-link btn btn-primary">Ver mas...</a>
-                        </div>
+<div class="col-md-4">
+    <div class="col-sm-2">
+        <div class="card card-body mt-5 form-group card border-primary mb-3" style="width: 22rem; ">
+            <img src="@Url.Content(item.UrlToImage)" alt="" />
+            <div class="card-mb-3">
+                <div class="card-body form-group">
+                    <h6 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h6>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
                 </div>
-                @*</div>*@
-            @*</div>*@
-        @*</div>*@
+                <div>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.FechaPublicacion) </p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Autor) </p>
+                    <a href="@Html.DisplayFor(modelItem => item.Url)" class="btn btn-outline-primary my-2 my-sm-0">Ver más...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>} 
 
-    }
-
-@*</div>*@
+</div>

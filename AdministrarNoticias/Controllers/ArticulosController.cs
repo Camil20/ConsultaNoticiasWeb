@@ -18,14 +18,33 @@ namespace AdministrarNoticias.Controllers
             _context = context;
         }
 
-        // GET: Articulos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar = null)
         {
-            var noticiasContext = _context.Articulos.Include(a => a.Categoria).Include(a => a.Fuente).Include(a => a.Pais);
-            return View(await noticiasContext.ToListAsync());
+            ViewData[nameof(buscar)] = buscar;
+
+            if (string.IsNullOrEmpty(buscar))
+            {
+                var noticiasContext = _context.Articulos
+                    .Include(a => a.Categoria)
+                    .Include(a => a.Fuente)
+                    .Include(a => a.Pais);
+                return View(await noticiasContext.ToListAsync());
+            }
+            else
+            {
+                 var noticiasContext = _context.Articulos
+                    .Include(a => a.Categoria)
+                    .Include(a => a.Fuente)
+                    .Include(a => a.Pais)
+                    .Where(a=> a.Titulo.Contains(buscar))
+                    .OrderByDescending(a=> a.Titulo);
+                return View(await noticiasContext.ToListAsync());
+            }
+        
+           
         }
 
-        // GET: Articulos/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,7 +65,7 @@ namespace AdministrarNoticias.Controllers
             return View(articulo);
         }
 
-        // GET: Articulos/Create
+       
         public IActionResult Create()
         {
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "NombreCategoria");
@@ -55,9 +74,7 @@ namespace AdministrarNoticias.Controllers
             return View();
         }
 
-        // POST: Articulos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+  
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ArticuloId,Titulo,Descripcion,Autor,Url,UrlToImage,FechaPublicacion,Contenido,CategoriaId,PaisId,FuenteId")] Articulo articulo)
@@ -74,7 +91,7 @@ namespace AdministrarNoticias.Controllers
             return View(articulo);
         }
 
-        // GET: Articulos/Edit/5
+     
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,9 +110,7 @@ namespace AdministrarNoticias.Controllers
             return View(articulo);
         }
 
-        // POST: Articulos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ArticuloId,Titulo,Descripcion,Autor,Url,UrlToImage,FechaPublicacion,Contenido,CategoriaId,PaisId,FuenteId")] Articulo articulo)
@@ -131,7 +146,6 @@ namespace AdministrarNoticias.Controllers
             return View(articulo);
         }
 
-        // GET: Articulos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,7 +166,6 @@ namespace AdministrarNoticias.Controllers
             return View(articulo);
         }
 
-        // POST: Articulos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

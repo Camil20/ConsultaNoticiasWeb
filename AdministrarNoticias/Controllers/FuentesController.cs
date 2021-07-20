@@ -18,13 +18,11 @@ namespace AdministrarNoticias.Controllers
             _context = context;
         }
 
-        // GET: Fuentes
         public async Task<IActionResult> Index()
         {
             return View(await _context.Fuentes.ToListAsync());
         }
 
-        // GET: Fuentes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,15 +40,12 @@ namespace AdministrarNoticias.Controllers
             return View(fuente);
         }
 
-        // GET: Fuentes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Fuentes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FuenteId,NombreFuente")] Fuente fuente)
@@ -64,7 +59,7 @@ namespace AdministrarNoticias.Controllers
             return View(fuente);
         }
 
-        // GET: Fuentes/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,9 +75,7 @@ namespace AdministrarNoticias.Controllers
             return View(fuente);
         }
 
-        // POST: Fuentes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FuenteId,NombreFuente")] Fuente fuente)
@@ -115,7 +108,7 @@ namespace AdministrarNoticias.Controllers
             return View(fuente);
         }
 
-        // GET: Fuentes/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +126,6 @@ namespace AdministrarNoticias.Controllers
             return View(fuente);
         }
 
-        // POST: Fuentes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

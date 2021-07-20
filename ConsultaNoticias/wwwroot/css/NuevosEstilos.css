@@ -1,0 +1,17 @@
+﻿
+
+header {
+    background-color: #0094ff;
+   
+}
+
+.contenedor1 {
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.titulo {
+    text-shadow: 7px 3px 5px #0026ff;
+    font-size: 4.5rem;
+    margin-top: 140px;
+}

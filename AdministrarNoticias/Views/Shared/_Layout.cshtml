@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Administración de noticias</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/Estilos.css" rel="stylesheet" />
+    @*<link href="~/css/Estilos.css" rel="stylesheet" />*@
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/NuevosEstilos.css" rel="stylesheet" />
+
 </head>
-<body>
+<body class="cuerpo">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container ">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BIENVENIDA</a>
+        <nav class="navbar encabezado navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="display-4 font-weight-bold text-black-50" asp-area="" asp-controller="Home" asp-action="Index">PORTADA</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Articulos" asp-action="Index">Artículos</a>
+                        <li class="ml-5 mr-5 nav-item">
+                            <a class=" nav-link text-light" style="font-size:20px" asp-area="" asp-controller="Articulos" asp-action="Index"><b>ARTÍCULOS</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Categorias" asp-action="Index">Categorías</a>
+                        <li class=" ml-5 mr-5 nav-item">
+                            <a class="nav-link text-light" style="font-size:20px" asp-area="" asp-controller="Categorias" asp-action="Index"><b>CATEGORÍAS</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Paises" asp-action="Index">Paises</a>
+                        <li class=" ml-5 mr-5 nav-item">
+                            <a class="nav-link text-light" style="font-size:20px" asp-area="" asp-controller="Paises" asp-action="Index"><b>PAISES</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Fuentes" asp-action="Index">Fuentes</a>
+                        <li class=" ml-5 mr-5 nav-item">
+                            <a class="nav-link text-light" style="font-size:20px" asp-area="" asp-controller="Fuentes" asp-action="Index"><b>FUENTES</b></a>
                         </li>
                     </ul>
                 </div>
@@ -42,9 +44,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted text-center">
+    <footer class="border-top Pies footer text-center">
         <div class="container">
-            2021 - Administración de noticias - 
+            2021 - ADMINISTRACIÓN DE NOTICIAS
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,7 +1,10 @@
 ﻿
-.container3 {
+.contenedor {
     text-align: center;  
-    background-color:blue;
-    text-emphasis-color: aliceblue;
     padding: 6px;
+
+}
+
+header{
+    background-color: #0094ff;
 }
